@@ -21,4 +21,5 @@ Polls (would-you-rather, etc.)
 Random facts (interesting, false, or disconcerting)
 
 This should change daily, allowing for shareability and variety
+
 Should include generic HTML/CSS, a source (database) for daily change in interactions, JavaScript for changing interactions and implementing functionality
