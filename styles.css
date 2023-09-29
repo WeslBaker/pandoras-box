@@ -1,12 +1,12 @@
-header{
-    text-align: center;
-    padding-top: 3rem;
-}
-
-h1{
-    font-size: 3 rem;
-}
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Croissant+One&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Smooch+Sans:wght@100;400;800&display=swap');
 
 body{
-    background-color: aqua;
+    
+}
+
+header{
+    text-align: center;
+    padding-top: 0rem;
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 3rem;
 }
