@@ -1,12 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Croissant+One&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Smooch+Sans:wght@100;400;800&display=swap');
 
 body{
-    
+    background-color: black;
+    display: grid;
+    grid-template-rows: 1fr 100px 1fr;
+    grid-template-columns: repeat(5,1fr);
 }
 
 header{
+    grid-column: 2/5;
     text-align: center;
     padding-top: 0rem;
     font-family: 'Smooch Sans', sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
+    color: rgb(183, 183, 183);
+    text-shadow: 0 0 9px #FF0000, 0 0 12px #0000FF;
 }
+
+btn{
+    grid-column: 3;
+    grid-row: 2;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+}
+
