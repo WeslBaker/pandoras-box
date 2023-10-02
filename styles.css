@@ -28,3 +28,20 @@ btn{
     box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
 }
 
+dadJokeBody{
+    background-color: black;
+    display: grid;
+    grid-template-rows: 1fr 100px 1fr;
+    grid-template-columns: repeat(5,200px);
+}
+
+.backButton{
+    grid-column: 4;
+    grid-row: 3;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+}
