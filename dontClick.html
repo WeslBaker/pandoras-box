@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless Button</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        h1 {
+            font-size: 4rem;
+            margin-top: 10rem;
+        }
+        .button {
+            background-color: #fff;
+            grid-column: 2/3;
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: auto;
+            justify-content: center;
+        }
+        .button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        .grid{
+            grid-template-columns: repeat(3, 1fr);
+            display: grid;
+        }
+    </style>
+    <div class="grid">
+        <h1 class="button">Don't Click the Button</h1>
+    </div>
+
+</body>
+</html>
