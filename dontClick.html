@@ -13,7 +13,7 @@
             text-align: center;
             font-family: sans-serif;
         }
-        h1 {
+        button {
             font-size: 4rem;
             margin-top: 10rem;
         }
@@ -38,9 +38,51 @@
             display: grid;
         }
     </style>
+
     <div class="grid">
-        <h1 class="button">Don't Click the Button</h1>
+        <button class="button">Don't Click the Button</button>
     </div>
 
+    <script>
+      const button = document.querySelector('.button');
+
+      const functions = [goToWiki, angryFace, doNothing];
+      const functionWeights = [2, 3, 5];
+
+      button.addEventListener('click', () => {
+        selectFunction(functions, functionWeights);
+      });
+
+      function selectFunction(functions, functionWeights) {
+        // Calculate the total weight
+        const totalWeight = functionWeights.reduce((acc, weight) => acc + weight, 0);
+      
+        // Generate a random number within the total weight
+        const randomNumber = Math.random() * totalWeight;
+      
+        // Select a function based on the random number
+        let currentWeight = 0;
+        for (let i = 0; i < functions.length; i++) {
+          currentWeight += functionWeights[i];
+          if (randomNumber < currentWeight) {
+            functions[i]();
+            break; // Exit the loop once a function is selected
+          }
+        }
+      }
+
+      function goToWiki(){
+        const url = "https://en.wikipedia.org/wiki/The_Game_(mind_game)";
+        window.open(url, "_blank");
+      }
+
+      function angryFace(){
+        button.innerHTML = ">:("
+      }
+
+      function doNothing(){
+        return
+      }
+    </script>
 </body>
 </html>
