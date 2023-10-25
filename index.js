@@ -1,3 +1,4 @@
+//Dad Jokes
 const jokeDiv = document.getElementById("joke");
 const jokeButton = document.getElementById("jokeBtn");
 
@@ -24,3 +25,39 @@ async function loadJoke() {
     jokeDiv.innerHTML = data.joke;
 
 }
+
+
+
+// const QuoteDiv = document.getElementById("quote");
+// const QuoteButton = document.getElementById("quoteBtn");
+
+// QuoteButton.addEventListener("click", getapi );
+
+// const api_url ="https://zenquotes.io/api/quotes/";
+
+// async function getapi(url)
+// {
+//   const response = await fetch(url);
+//   var data = await response.json();
+//   console.log(data);
+// }
+
+// getapi(api_url);
+
+// loadquote();
+
+// async function loadquote() {
+
+//     const config = {
+//         headers : {
+//             Accept: "application/json"
+//         }
+//     };
+
+//     const resultquote = await fetch("https://zenquotes.io/api/quotes/", config);
+//     const dataquote = await resultquote.json();
+
+//     QuoteDiv.innerHTML = dataquote.quote;
+
+// }
+
