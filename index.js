@@ -1,20 +1,15 @@
 // Constants
 
-//Dad Jokes
 const jokeDiv = document.getElementById("joke");
 const jokeButton = document.getElementById("jokeBtn");
-const factsDiv = document.getElementById("facts");
-const factsButton = document.getElementById("factsBtn");
 
 // Event Listeners
 
-jokeButton.addEventListener("click", loadJoke );
-factsButton.addEventListener("click", loadFact)
+jokeButton.addEventListener("click", loadJoke);
 
 // Function Calls
 
 loadJoke();
-loadFact();
 
 // Sample Data
 
@@ -39,20 +34,6 @@ async function loadJoke() {
     jokeDiv.innerHTML = data.joke;
 
 }
-
-async function loadFact(){
-
-    const config = {
-        headers : {
-            Accept:"application/json"
-        }
-    }
-
-    const result = await fetch("https://api.api-ninjas.com/v1/facts?limit=" + 1, config);
-    const data = await result.json();
-    factsDiv.innerHTML = data.fact
-}
-
 
 // const QuoteDiv = document.getElementById("quote");
 // const QuoteButton = document.getElementById("quoteBtn");

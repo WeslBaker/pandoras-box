@@ -6,9 +6,30 @@ body{
     grid-template-columns: repeat(5,1fr);
 }
 
+header{
+    grid-column: 2/5;
+    text-align: center;
+    padding-top: 0rem;
+    font-family: 'Smooch Sans', sans-serif;
+    font-size: 4rem;
+    color: rgb(183, 183, 183);
+    text-shadow: 0 0 9px #FF0000, 0 0 12px #0000FF;
+}
+
+.backButtonHome{
+    grid-column: 3;
+    grid-row: 4;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+    transform: translateY(-60px);
+}
 
 
-#factsBtn{
+.factBtn{
     grid-column: 3;
     grid-row: 1;
     background-color: rgb(195, 195, 195);
@@ -19,7 +40,7 @@ body{
     box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
 }
 
-#facts {
+.fact {
     grid-column: 2/4;
     grid-row: 2;
     font-size: 30px;
@@ -31,4 +52,4 @@ body{
     color: rgb(255, 255, 255);
     z-index: 1;
     text-align: center;
-  }
+}
