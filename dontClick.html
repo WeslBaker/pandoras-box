@@ -47,7 +47,7 @@
       const button = document.querySelector('.button');
 
       const functions = [goToWiki, angryFace, doNothing];
-      const functionWeights = [2, 3, 5];
+      const functionWeights = [1, 1, 8];
 
       button.addEventListener('click', () => {
         selectFunction(functions, functionWeights);
@@ -81,7 +81,7 @@
       }
 
       function doNothing(){
-        return
+        button.innerHTML = "I said not to click!"
       }
     </script>
 </body>
