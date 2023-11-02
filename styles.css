@@ -2,6 +2,7 @@
 
 body{
     padding-top: 100px;
+    
     background-color: rgb(0, 0, 0);
     display: grid;
     grid-template-rows: 1fr 1fr 100px;
@@ -18,7 +19,7 @@ header{
     text-shadow: 0 0 9px #FF0000, 0 0 12px #0000FF;
 }
 
-.press{
+.dad{
     grid-column: 3;
     grid-row: 2;
     background-color: rgb(195, 195, 195);
@@ -29,6 +30,18 @@ header{
     box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
     max-height: 100px;
 }
+
+/* .quote{
+    grid-column: 3;
+    grid-row: 3;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+    max-height: 100px;
+} */
 
 .backButton{
     grid-column: 4;
@@ -66,6 +79,20 @@ header{
 }
 
 .joke {
+    grid-column: 2/4;
+    grid-row: 2;
+    font-size: 30px;
+    letter-spacing: 1px;
+    line-height: 40px;
+    transform: translateX(125px);
+    padding-top: 20px;
+    max-width: 600px;
+    color: rgb(255, 255, 255);
+    z-index: 1;
+    text-align: center;
+  }
+
+  .quote {
     grid-column: 2/4;
     grid-row: 2;
     font-size: 30px;
