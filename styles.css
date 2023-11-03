@@ -31,6 +31,45 @@ header{
     max-height: 100px;
 }
 
+.button{
+    grid-column: 2;
+    grid-row: 2;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+    max-height: 100px;
+    transform: translateX(-20px);
+}
+
+.facts{
+    grid-column: 4;
+    grid-row: 2;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+    max-height: 100px;
+    transform: translateX(20px);
+}
+
+.wheel{
+    grid-column: 3;
+    grid-row: 3;
+    background-color: rgb(195, 195, 195);
+    text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+    max-height: 100px;
+    transform: translateY(-160px);
+}
+
 /* .quote{
     grid-column: 3;
     grid-row: 3;
@@ -68,7 +107,7 @@ header{
 
 
   .dadButton{
-    grid-column: 3;
+    grid-column: 3/4;
     grid-row: 1;
     background-color: rgb(195, 195, 195);
     text-align: center;
