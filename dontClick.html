@@ -12,10 +12,20 @@
             color: #fff;
             text-align: center;
             font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+        .container{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
         }
         button {
             font-size: 4rem;
             margin-top: 10rem;
+
         }
         .button {
             background-color: #fff;
@@ -37,17 +47,23 @@
             grid-template-columns: repeat(3, 1fr);
             display: grid;
         }
+        p{
+          color:#fff;
+        }
     </style>
 
-    <div class="grid">
-        <button class="button">Don't Click the Button</button>
+    <div class="container">
+        <div class="grid">
+            <button class="button">Don't Click the Button</button>
+        </div>
     </div>
 
     <script>
       const button = document.querySelector('.button');
+      const container = document.querySelector('.container')
 
-      const functions = [goToWiki, angryFace, doNothing];
-      const functionWeights = [1, 1, 8];
+      const functions = [morseCodeMessage, angryFace, doNothing];
+      const functionWeights = [10, 0, 0];
 
       button.addEventListener('click', () => {
         selectFunction(functions, functionWeights);
@@ -71,17 +87,99 @@
         }
       }
 
-      function goToWiki(){
-        const url = "https://en.wikipedia.org/wiki/The_Game_(mind_game)";
-        window.open(url, "_blank");
-      }
-
       function angryFace(){
         button.innerHTML = ">:("
       }
 
       function doNothing(){
         button.innerHTML = "I said not to click!"
+      }
+
+      function fakeTimer(){
+        return Error("Not Implemented");
+
+        //set time
+
+        //html text being timer
+
+        //after timer runs out, display message from array
+      }
+
+      let arrayIndex = 0;
+
+      function morseCodeMessage(){
+        // Array of morse code messages
+
+        if(arrayIndex == 10){
+          arrayIndex = 0;
+        }
+        let stringIndex = 0;
+        const delay = 100;
+        let codes = [
+          ".. .----. -- / .-. . .- -.. .. -. --. / .- / -... --- --- -.- / --- -. / .- -. - .. -....- --. .-. .- ...- .. - -.-- .-.-.- / .. - .----. ... / .. -- .--. --- ... ... .. -... .-.. . / - --- / .--. ..- - / -.. --- .-- -. .-.-.-",
+          ".-..-. .. .----. -- / .-. . .- -.. .. -. --. / .- / -... --- --- -.- / --- -. / .- -. - .. -....- --. .-. .- ...- .. - -.-- .-.-.- / .. - .----. ... / .. -- .--. --- ... ... .. -... .-.. . / - --- / .--. ..- - / -.. --- .-- -. .-.-.- .-..-.",
+          ".. / ..- ... . -.. / - --- / -... . / .- / -... .- -.- . .-. --..-- / -... ..- - / .. / -.-. --- ..- .-.. -.. -. .----. - / -- .- -.- . / . -. --- ..- --. .... / -.. --- ..- --. .... .-.-.-",
+          ".. .----. -- / .-- .-. .. - .. -. --. / .- / -... --- --- -.- .-.-.- / .. .----. ...- . / --. --- - / - .... . / .--. .- --. . / -. ..- -- -... . .-. ... / -.. --- -. .",
+          ".. .----. -- / -. --- - / .- .-. --. ..- .. -. --. -.-.-. / .. .----. -- / .--- ..- ... - / . -..- .--. .-.. .- .. -. .. -. --. / .-- .... -.-- / .. .----. -- / .-. .. --. .... - .-.-.-",
+          ".-- .... -.-- / -.. --- -. .----. - / ... -.- . .-.. . - --- -. ... / ..-. .. --. .... - / . .- -.-. .... / --- - .... . .-. ..--.. / - .... . -.-- / -.. --- -. .----. - / .... .- ...- . / - .... . / --. ..- - ... .-.-.-",
+          ".. .----. -- / - .-. -.-- .. -. --. / - --- / .-.. --- ... . / .-- . .. --. .... - --..-- / -... ..- - / .. - / -.- . . .--. ... / ..-. .. -. -.. .. -. --. / -- . .-.-.-",
+          ".. .----. -- / ..-. .-. .. . -. -.. ... / .-- .. - .... / .- .-.. .-.. / . .-.. . -.-. - .-. .. -.-. .. .- -. ... .-.-.- / .-- . / .... .- ...- . / --. --- --- -.. / -.-. ..- .-. .-. . -. - / -.-. --- -. -. . -.-. - .. --- -. ... .-.-.-",
+          ".. / -.-. --- ..- .-.. -.. -. .----. - / ..-. .. --. ..- .-. . / --- ..- - / .... --- .-- / - --- / .--. ..- - / -- -.-- / ... . .- - -... . .-.. - / --- -. .-.-.- / - .... . -. / .. - / .-..-. -.-. .-.. .. -.-. -.- . -..",
+          ".. / ..- ... . -.. / - --- / .--. .-.. .- -.-- / .--. .. .- -. --- / -... -.-- / . .- .-. --..-- / -... ..- - / -. --- .-- / .. / ..- ... . / -- -.-- / .... .- -. -.. ... .-.-.-",
+        ]
+
+          let containerDiv = document.querySelector('.container');
+          let p = document.createElement('p');
+          containerDiv.appendChild(p);
+          let pWord = "";
+          
+
+          function displayMorseCodeCharacter() {
+              let morseCode = codes[arrayIndex];
+              let len = morseCode.length
+
+              if (stringIndex < len) {
+                
+                pWord += morseCode[stringIndex];
+                p.innerHTML = pWord;
+                stringIndex++;
+                setTimeout(displayMorseCodeCharacter, delay); // 1-second delay before processing the next character
+              }
+              
+          }
+
+          displayMorseCodeCharacter();
+
+          arrayIndex++;
+        }
+
+      function fakeVirusScan(){
+        throw new Error("Not Implemented");
+
+        //display fake virus scanning
+
+        //fake virus scanning with gag messages
+
+        //results is a gag 
+      }
+
+      function miniGame(){
+        throw new Error("Not Implemented");
+        //unknown yet
+      }
+
+      function brokenScreen(){
+        throw new Error("Not Implemented");
+        //broken screen as background
+
+        //after a timer has reached 10 seconds, display passive aggressive message
+      }
+      
+      function simonSays(){
+        throw new Error("Not Implemented");
+        // play simon says game
+
+        //make it almost a full conversation
       }
     </script>
 </body>
