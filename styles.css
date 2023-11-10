@@ -70,6 +70,8 @@ header{
     transform: translateY(-160px);
 }
 
+
+
 /* .quote{
     grid-column: 3;
     grid-row: 3;
@@ -132,15 +134,16 @@ header{
   }
 
   .quote {
-    grid-column: 2/4;
+    grid-column: 4;
     grid-row: 2;
-    font-size: 30px;
-    letter-spacing: 1px;
-    line-height: 40px;
-    transform: translateX(125px);
-    padding-top: 20px;
-    max-width: 600px;
-    color: rgb(255, 255, 255);
-    z-index: 1;
+    background-color: rgb(195, 195, 195);
     text-align: center;
+    color: rgb(134, 30, 30);
+    font-size: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 12px #FF0000, 0 0 17px #0000FF;
+    max-height: 100px;
+    margin-left: 20px;
+    transform: translateY(165px);
+    
   }

@@ -7,10 +7,10 @@ jokeButton.addEventListener("click", loadJoke );
 
 loadJoke();
 
-sampledata = {
-    "joke":"What did the mama bullet say to the daddy bullet? We're having a BB.",
-    "likes" : 45
-};
+// sampledata = {
+//     "joke":"What did the mama bullet say to the daddy bullet? We're having a BB.",
+//     "likes" : 45
+// };
     
 async function loadJoke() {
 
