@@ -14,6 +14,7 @@
             font-family: sans-serif;
             display: flex;
             flex-direction: column;
+
         }
         .container{
           display: flex;
@@ -21,6 +22,7 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          position: relative;
         }
         button {
             font-size: 4rem;
@@ -29,7 +31,9 @@
         }
         .button {
             background-color: #fff;
-            grid-column: 2/3;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: #000;
             border: none;
             padding: 1rem 2rem;
@@ -38,6 +42,9 @@
             cursor: pointer;
             width: auto;
             justify-content: center;
+            z-index: 2;
+            position:absolute;
+
         }
         .button:hover {
             background-color: #000;
@@ -49,21 +56,26 @@
         }
         p{
           color:#fff;
+          font-size: medium;
+        }
+        img{
+          height: 100%;
+          width: 100%;
+
         }
     </style>
 
-    <div class="container">
-        <div class="grid">
+    <div class="container ">
             <button class="button">Don't Click the Button</button>
-        </div>
     </div>
 
     <script>
+
       const button = document.querySelector('.button');
       const container = document.querySelector('.container')
 
-      const functions = [morseCodeMessage, angryFace, doNothing];
-      const functionWeights = [10, 0, 0];
+      const functions = [morseCodeMessage, angryFace, doNothing,brokenScreen,doNothing];
+      const functionWeights = [10,60,10,10,10];
 
       button.addEventListener('click', () => {
         selectFunction(functions, functionWeights);
@@ -90,9 +102,70 @@
       function angryFace(){
         button.innerHTML = ">:("
       }
+      
+      //variables for doNothing function
+      let attempts = 0;
+      const maxAttempts = 50;
+      const resetTime = 30000; // 30 seconds
+      let lastMoveTime = Date.now();
 
-      function doNothing(){
-        button.innerHTML = "I said not to click!"
+      function doNothing() {
+        // Get the current time
+        const currentTime = Date.now();
+
+        // Check if 30 seconds have passed or if max attempts are reached
+        if (currentTime - lastMoveTime > resetTime || attempts >= maxAttempts) {
+          // Reset the attempts and move the button back to its normal position
+          attempts = 0
+          document.querySelector('.button').onmousemove = null;
+          document.querySelector('.button').style.left = '50%';
+          document.querySelector('.button').style.top = '50%';
+          button.innerHTML = "Couldn't Click It :("
+          
+        } else {
+          // Continue with the normal movement logic
+      
+          document.querySelector('.button').onmousemove = doNothing;
+
+          // Get the dimensions of the window
+          const windowWidth = window.innerWidth;
+          const windowHeight = window.innerHeight;
+
+          // Get the dimensions and position of the button
+          const button = document.querySelector('.button');
+          const buttonRect = button.getBoundingClientRect();
+
+          // Calculate the minimum distance for the cursor to trigger the movement
+          const minDistance = 50;
+
+          // Get the current cursor position
+          const cursorX = event.clientX;
+          const cursorY = event.clientY;
+
+          // Check if the cursor is close to the button
+          const isCloseToButton =
+            cursorX > buttonRect.left - minDistance &&
+            cursorX < buttonRect.right + minDistance &&
+            cursorY > buttonRect.top - minDistance &&
+            cursorY < buttonRect.bottom + minDistance;
+
+          if (isCloseToButton) {
+            // Calculate a random position for the button
+            const randomX = Math.floor(Math.random() * (windowWidth - 100)); // Subtract 100 to keep the button within the window
+            const randomY = Math.floor(Math.random() * (windowHeight - 30)); // Subtract 30 for better visibility
+
+            // Move the button to the random position
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+
+                    // Update the last move time
+            lastMoveTime = currentTime;
+
+            // Increment the attempts counter
+            attempts++;
+                    
+          } 
+        }
       }
 
       function fakeTimer(){
@@ -169,11 +242,25 @@
       }
 
       function brokenScreen(){
-        throw new Error("Not Implemented");
         //broken screen as background
+        
+        button.classList.add('hidden');
+        button.innerHTML ="I said not to click the button!"
+        let brokenImg = document.createElement('img')
+        brokenImg.src = "images/brokenscreen.jpg"
+        container.appendChild(brokenImg)
 
+        
+        
         //after a timer has reached 10 seconds, display passive aggressive message
-      }
+        setTimeout( function(){
+                    button.classList.remove("hidden")},10000);
+           
+
+        }
+
+
+      
       
       function simonSays(){
         throw new Error("Not Implemented");
@@ -182,5 +269,6 @@
         //make it almost a full conversation
       }
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </body>
 </html>

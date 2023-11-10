@@ -568,12 +568,20 @@ video {
   }
 }
 
+.relative {
+  position: relative;
+}
+
 .flex {
   display: flex;
 }
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .transform {
@@ -586,12 +594,4 @@ video {
 
 .border {
   border-width: 1px;
-}
-
-.p-1 {
-  padding: 0.25rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
 }
