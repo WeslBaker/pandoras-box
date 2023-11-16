@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Croissant+One&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Smooch+Sans:wght@100;400;800&display=swap');
 
-body{
+body.index{
     padding-top: 100px;
     background-color: rgb(0, 0, 0);
     display: grid;
     grid-template-rows: 1fr 1fr 100px;
     grid-template-columns: repeat(5,1fr);
+}
+
+body.randImg {
+
+}
+
+.randImg {
+    width: 700px;
+    height: 700px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
 }
 
 header{
@@ -14,7 +28,7 @@ header{
     padding-top: 0rem;
     font-family: 'Smooch Sans', sans-serif;
     font-size: 4rem;
-    color: rgb(183, 183, 183);
+    color: rgb(152, 152, 152);
     text-shadow: 0 0 9px #FF0000, 0 0 12px #0000FF;
 }
 
