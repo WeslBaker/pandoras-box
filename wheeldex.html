@@ -41,10 +41,31 @@
         let spinBtn = document.querySelector('.spinBtn');
         let value = Math.ceil(Math.random() * 3600);
     
+        var isClicked = false;
+
         spinBtn.onclick = function(){
+           
             wheel.style.transform = "rotate(" + value + "deg)";
             value += Math.ceil(Math.random() * 3600);
-            console.log(elementsOverlap(spinBtn, one)); // 👉️ true
+            // console.log(elementsOverlap(spinBtn, one)); 
+            // setTimeout(() => { console.log('5 seconds passed'); }, 5000);
+            setTimeout(() => {switchPage(isClicked=true)},5000);
+            // switchPage(isClicked);
+            
+        }
+        
+
+
+        // setTimeout(switchPage(), 6000)
+
+        function switchPage(isClicked) {
+            if (isClikced = true){
+                window.location.href = "randomFacts.html"
+            }
+            else {
+                console.log("Nothing Happens")
+            }
+           
         }
 
         // function elementsOverlap(el1, el2) {
