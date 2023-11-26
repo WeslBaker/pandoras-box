@@ -12,15 +12,6 @@ body.randImg {
 
 }
 
-.randImg {
-    width: 700px;
-    height: 700px;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-
-}
 
 header{
     grid-column: 2/5;
