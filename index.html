@@ -1,31 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Pandora's Boxx</title>
+    <title>Spin Wheel</title>
+    <link rel="stylesheet" type="text/css" href="wheeldexstyles.css">
 </head>
-<body class="center">
-    <header>
-        <h1>Pandora's Boxx</h1>
-    </header>
+<body>
+    <div class="overall">
+        <div class="title">Pandoras Boxx</div>
+
+    <div class="container">
+        <div id="spinBtn" class="spinBtn">Spin</div>
+        
+        <div class="wheel">
+            <div id="one" class="number" style="--i:1;--clr:#d6d6d6;"><span>1</span></div>
+            <div id="two" class="number" style="--i:2;--clr:#d6d6d6;"><span>2</span></div>
+            <div id="three" class="number" style="--i:3;--clr:#d6d6d6;"><span>3</span></div>
+            <div id="four" class="number" style="--i:4;--clr:#d6d6d6;"><span>4</span></div>
+            <div id="five" class="number" style="--i:5;--clr:#d6d6d6;"><span>5</span></div>
+            <div id="six" class="number" style="--i:6;--clr:#d6d6d6;"><span>6</span></div>
+            <div id="seven" class="number" style="--i:7;--clr:#d6d6d6;"><span>7</span></div>
+            <div id="eight" class="number" style="--i:8;--clr:#d6d6d6;"><span>8</span></div>
+        </div>
+
+        <div>
+            <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
+           
+        </div>
+        </div>
+    </div>
     
-    <a href="dadJokes.html" class="dad">Joke</a>
 
-    <a href="dontClick.html" class="button">Don't</a>
+        
+    <script>
+        const one = document.getElementById("one");
+        const two = document.getElementById("two");
+        const three = document.getElementById("three");
+        const four = document.getElementById("four");
+        const five = document.getElementById("five");
+        const six = document.getElementById("six");
+        const seven = document.getElementById("seven");
+        const eight = document.getElementById("eight");
+        
 
-    <a href="randomFacts.html" class="facts">Facts</a>
+        let wheel = document.querySelector('.wheel');
+        let spinBtn = document.querySelector('.spinBtn');
+        let value = Math.ceil(Math.random() * 3600);
+    
+        var isClicked = false;
 
-    <a href="wheeldex.html" class="wheel">Wheel</a>
+        spinBtn.onclick = function(){
+           
+            wheel.style.transform = "rotate(" + value + "deg)";
+            value += Math.ceil(Math.random() * 3600);
+            // console.log(elementsOverlap(spinBtn, one)); 
+            // setTimeout(() => { console.log('5 seconds passed'); }, 5000);
+            setTimeout(() => {switchPage(isClicked=true)},7000);
+            // switchPage(isClicked);
+            
+        }
+        
 
-    <a href="quotes.html" class="quote ">Quotes</a>
+const pageList = ["randomFacts.html", "dadJokes.html", "dontClick.html", "quotes.html"]
+        // setTimeout(switchPage(), 6000)
 
-    <!-- <a href="quotes.html" class="dad">Quote</a> -->
+        function switchPage(isClicked) {
+            let pageIndex = Math.floor(Math.random() * 4);
+            if (isClikced = true){
+                window.location.href = pageList[pageIndex]
+            }
+            else {
+                console.log("Nothing Happens")
+            }
+           
+        }
 
-    <!-- <btn class="dad" onclick="window.location.href = 'dadJokes.html';">Joke</btn> -->
+        // function elementsOverlap(el1, el2) {
+        //     const domRect1 = el1.getBoundingClientRect();
+        //     const domRect2 = el2.getBoundingClientRect();
 
-    <!-- <btn class="quote" onclick="window.location.href = 'quotes.html';">Quote</btn> -->
-    <script src="index.js"></script>
+        //     return !(
+        //         domRect1.top > domRect2.bottom 
+        //     );
+        //     }
+
+            // console.log(elementsOverlap(spinBtn, one)); // 👉️ true
+
+            // console.log(elementsOverlap(el1, el3)); // 👉️ false
+
+
+    </script>
+    
 </body>
 </html>
