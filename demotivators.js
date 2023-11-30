@@ -1,5 +1,5 @@
 
-import quotes from "./quotes.json" assert {type:'json'}
+import quotes from "./demotivators.json" assert {type:'json'}
 
 let new_quote = JSON.stringify(quotes);
 let n_quote = JSON.parse(new_quote);
