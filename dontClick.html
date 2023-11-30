@@ -29,7 +29,7 @@
             margin-top: 10rem;
 
         }
-        .button {
+        .btn {
             background-color: #fff;
             top: 50%;
             left: 50%;
@@ -44,8 +44,8 @@
             justify-content: center;
             z-index: 2;
             position:absolute;
-
         }
+        
         .button:hover {
             background-color: #000;
             color: #fff;
@@ -59,29 +59,42 @@
           font-size: medium;
         }
         img{
-          height: 100%;
+          height: 100vh;
           width: 100%;
 
         }
     </style>
 
     <div class="container ">
-            <button class="button">Don't Click the Button</button>
+            <button class="btn">Don't Click the Button</button>
     </div>
 
     <script>
 
-      const button = document.querySelector('.button');
+      let btn = document.querySelector('.btn');
       const container = document.querySelector('.container')
 
-      const functions = [morseCodeMessage, angryFace, doNothing,brokenScreen,doNothing];
-      const functionWeights = [10,60,10,10,10];
+      let functions = [morseCodeMessage, angryFace, doNothing,brokenScreen,doNothing];
+      let functionWeights = [10,60,10,10,10];
 
-      button.addEventListener('click', () => {
+      let functionsPlayed = 0;
+
+      btn.addEventListener('click', () => {
         selectFunction(functions, functionWeights);
       });
 
       function selectFunction(functions, functionWeights) {
+
+        if(functionsPlayed === 10){
+          container.innerHTML = `
+                                  <a href = "index.html">
+                                    <button class="btn" > Wow, you really don't listen do you? &nbsp Back to homepage</button>
+                                  </a>`
+        }
+        else{
+          functionsPlayed++;
+        }
+        console.log("something")
         // Calculate the total weight
         const totalWeight = functionWeights.reduce((acc, weight) => acc + weight, 0);
       
@@ -100,40 +113,49 @@
       }
 
       function angryFace(){
-        button.innerHTML = ">:("
+        btn.innerHTML = ">:("
       }
       
-      //variables for doNothing function
       let attempts = 0;
-      const maxAttempts = 50;
-      const resetTime = 30000; // 30 seconds
+      const maxAttempts = 10;
+       // 10 seconds
       let lastMoveTime = Date.now();
 
       function doNothing() {
+        container.innerHTML = `<button class="btn">Please Don't Click >:( </button>`
+
+        btn = document.querySelector(".btn")
+
+        // Add event listener directly to the button
+        btn.addEventListener('click', () => {
+        selectFunction(functions, functionWeights);
+        });
+
         // Get the current time
         const currentTime = Date.now();
 
         // Check if 30 seconds have passed or if max attempts are reached
-        if (currentTime - lastMoveTime > resetTime || attempts >= maxAttempts) {
+        if (attempts >= maxAttempts) {
           // Reset the attempts and move the button back to its normal position
           attempts = 0
-          document.querySelector('.button').onmousemove = null;
-          document.querySelector('.button').style.left = '50%';
-          document.querySelector('.button').style.top = '50%';
-          button.innerHTML = "Couldn't Click It :("
+          document.querySelector('.btn').onmousemove = null;
+          document.querySelector('.btn').style.left = '50%';
+          document.querySelector('.btn').style.top = '50%';
+          btn.innerHTML = "Couldn't Click It :("
+          
           
         } else {
           // Continue with the normal movement logic
       
-          document.querySelector('.button').onmousemove = doNothing;
+          document.querySelector('.btn').onmousemove = doNothing;
 
           // Get the dimensions of the window
           const windowWidth = window.innerWidth;
           const windowHeight = window.innerHeight;
 
           // Get the dimensions and position of the button
-          const button = document.querySelector('.button');
-          const buttonRect = button.getBoundingClientRect();
+          const btn = document.querySelector('.btn');
+          const buttonRect = btn.getBoundingClientRect();
 
           // Calculate the minimum distance for the cursor to trigger the movement
           const minDistance = 50;
@@ -151,12 +173,12 @@
 
           if (isCloseToButton) {
             // Calculate a random position for the button
-            const randomX = Math.floor(Math.random() * (windowWidth - 100)); // Subtract 100 to keep the button within the window
+            const randomX = Math.floor(Math.random() * (windowWidth - 200)); // Subtract 100 to keep the button within the window
             const randomY = Math.floor(Math.random() * (windowHeight - 30)); // Subtract 30 for better visibility
 
             // Move the button to the random position
-            button.style.left = `${randomX}px`;
-            button.style.top = `${randomY}px`;
+            btn.style.left = `${randomX}px`;
+            btn.style.top = `${randomY}px`;
 
                     // Update the last move time
             lastMoveTime = currentTime;
@@ -168,20 +190,12 @@
         }
       }
 
-      function fakeTimer(){
-        return Error("Not Implemented");
-
-        //set time
-
-        //html text being timer
-
-        //after timer runs out, display message from array
-      }
-
       let arrayIndex = 0;
 
       function morseCodeMessage(){
         // Array of morse code messages
+
+        container.innerHTML = ""
 
         if(arrayIndex == 10){
           arrayIndex = 0;
@@ -218,6 +232,18 @@
                 stringIndex++;
                 setTimeout(displayMorseCodeCharacter, delay); // 1-second delay before processing the next character
               }
+              else{
+                container.innerHTML = `
+                <p>${pWord}</p>
+                <button class="btn">Neato!</button>`
+                
+                let btn = document.querySelector(".btn")
+
+                // Add event listener directly to the button
+                btn.addEventListener('click', () => {
+                    selectFunction(functions, functionWeights);
+        });
+              }
               
           }
 
@@ -225,6 +251,44 @@
 
           arrayIndex++;
         }
+
+      function brokenScreen(){
+        //broken screen as background
+        
+        container.innerHTML = ""
+
+        let brokenImg = document.createElement('img')
+        brokenImg.src = "images/brokenscreen.jpg"
+        container.appendChild(brokenImg)
+        
+        //after a timer has reached 10 seconds, display passive aggressive message
+        setTimeout( function(){
+                    container.innerHTML =  `<img src="images/brokenscreen.jpg">
+                                            <button class = "btn">I said not to click the button!</button>`
+                    let btn = document.querySelector(".btn")
+
+                    // Add event listener directly to the button
+                    btn.addEventListener('click', () => {
+                    selectFunction(functions, functionWeights)});},7000);
+        }
+
+      function simonSays(){
+        throw new Error("Not Implemented");
+        // play simon says game
+
+        //make it almost a full conversation
+      }
+
+      
+      function fakeTimer(){
+        return Error("Not Implemented");
+
+        //set time
+
+        //html text being timer
+
+        //after timer runs out, display message from array
+      }
 
       function fakeVirusScan(){
         throw new Error("Not Implemented");
@@ -235,39 +299,7 @@
 
         //results is a gag 
       }
-
-      function miniGame(){
-        throw new Error("Not Implemented");
-        //unknown yet
-      }
-
-      function brokenScreen(){
-        //broken screen as background
-        
-        button.classList.add('hidden');
-        button.innerHTML ="I said not to click the button!"
-        let brokenImg = document.createElement('img')
-        brokenImg.src = "images/brokenscreen.jpg"
-        container.appendChild(brokenImg)
-
-        
-        
-        //after a timer has reached 10 seconds, display passive aggressive message
-        setTimeout( function(){
-                    button.classList.remove("hidden")},10000);
-           
-
-        }
-
-
       
-      
-      function simonSays(){
-        throw new Error("Not Implemented");
-        // play simon says game
-
-        //make it almost a full conversation
-      }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
