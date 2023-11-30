@@ -7,7 +7,65 @@
     <link rel="stylesheet" href="output.css">
     <title>RandImg</title>
 </head>
-<body>
-    <img class="block m-auto" src="https://random.imagecdn.app/500/500"/>
+<body class="max-h-screen bg-black flex flex-wrap justify-around">
+
+    <script>
+        const img500 = `<img class="block m-auto border-maroon border-4 rounded-lg mt-20" src="https://random.imagecdn.app/500/500"/>`;
+        const imgperson = `<img class="block m-auto border-maroon border-4 rounded-lg mt-20 w-1/2 " src="https://www.thispersondoesnotexist.com"/>`;
+        const img100 = `<img class="flex" src="https://random.imagecdn.app/100/100"/>`;
+        const randomsmall = `<img class="flex w-24" src="https://www.thispersondoesnotexist.com"/>`;
+        
+        // let random = Math.random();
+        let random = .95;
+        
+        console.log(random);
+        if(random <= .333)
+        {
+            let div = document.createElement('div');
+            div.innerHTML = img500;
+            document.body.appendChild(div);
+        }
+        else if(random <= .666)
+        {
+            console.log("What is happening?");
+            let div = document.createElement('div');
+            div.innerHTML = imgperson;
+            document.body.appendChild(div);
+        }
+        else if(random < .9)
+        {
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let rows = Math.floor(height / 100);
+            let columns = Math.floor(width / 100);
+            console.log(rows + "," + height)
+            let total = rows * columns
+            console.log(total);
+            for(i = 0; i < total; i++)
+            {
+                let div = document.createElement('div');
+                div.innerHTML = img100;
+                document.body.appendChild(div);
+                console.log('Anotha one');
+            }
+        }
+        else{
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            let rows = Math.floor(height / 96);
+            let columns = Math.floor(width / 96);
+            console.log(rows + "," + height)
+            let total = rows * columns
+            console.log(total);
+            for(i = 0; i < total; i++)
+            {
+                let div = document.createElement("div");
+                div.style.width = 24;
+                div.innerHTML = randomsmall;
+                document.body.appendChild(div);
+                console.log('Huh?');
+            }
+        }
+    </script>
 </body>
 </html>
