@@ -7,23 +7,17 @@ html, body {
 }
 
 body {
-    /* Setting relative position as a reference for absolute positioning */
     position: relative;
-
-    /* Using flexbox to center content */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    /* Font and background styling */
     font-family: Arial, sans-serif;
     background-color: #0c0c0c;
     color: white;
 }
 
 button {
-    /* General styling for buttons */
     background-color: #960000;
     color: aliceblue;
     border: none;
@@ -36,23 +30,16 @@ button {
 }
 
 button:hover {
-    /* Hover effect for buttons */
     background-color: #bb3333;
 }
 
 #rickRollButton {
-    /* Specific styling for 'Rick Roll' button */
     font-size: 3rem; /* Much larger font size */
     padding: 50px 200px; /* Significantly increased padding */
     transform: rotate(20deg); /* Keeping the 45-degree rotation */
 }
 
 #backButton {
-    /* Positioning 'Back' button at the bottom left
-
-
-#backButton {
-    /* Positioning 'Back' button at the bottom left corner */
     position: absolute;
     bottom: 10px;
     left: 10px;
