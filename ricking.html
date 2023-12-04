@@ -6,16 +6,23 @@
 </head>
 <body>
 
-<!-- Button -->
+<!-- Button to Rick Roll -->
 <button id="rickRollButton">Click Me!</button>
 
-<!-- JavaScript to handle the redirection -->
+<!-- Back Button -->
+<button id="backButton">Back</button>
+
 <script>
+    // Rick Roll redirection
     document.getElementById('rickRollButton').addEventListener('click', function() {
         window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // Replace with your preferred Rick Roll link
     });
-</script>
 
+    // Back to Index redirection
+    document.getElementById('backButton').addEventListener('click', function() {
+        window.location.href = 'index.html'; // Redirects to the index page
+    });
+</script>
 
 </body>
 </html>
