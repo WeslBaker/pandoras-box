@@ -11,11 +11,13 @@ body{
 }
 
 .buttons {
+    margin-left: 40px;
+    margin-right: 40px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     min-width: 50%;
-    transform: translateY(-90px);
+    transform: translateY(-30px);
 }
 
 .backButtonHome{
@@ -61,7 +63,7 @@ body{
     letter-spacing: 1px;
     padding: 10px 10px 70px;
     width: 1000px;
-    height: 300px;
+
     color: aliceblue;
     text-align: center;
     border: 1px solid aliceblue;
@@ -72,13 +74,17 @@ body{
     .whole {
         font-size: 40px;
         width: 550px;
-        height: 200px;
     }
     .backButtonHome {
         font-size: 30px;
         padding: 10px;
         transform: translateY(-3px);
         margin: 40px;
+    }
+    .buttons{
+        margin-left: 30px;
+        margin-right: 30px;
+        transform: translateY(-50px);
     }
     .quotebtn {
         font-size: 30px;
@@ -92,7 +98,6 @@ body{
     .whole {
         font-size: 25px;
         width: 450px;
-        height: 125px;
     }
     .backButtonHome {
         font-size: 25px;
