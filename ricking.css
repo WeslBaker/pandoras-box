@@ -1,16 +1,59 @@
-body {
-    background: #0c0c0c;
+/* Resetting margins and paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
+
+body {
+    /* Setting relative position as a reference for absolute positioning */
+    position: relative;
+
+    /* Using flexbox to center content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* Font and background styling */
+    font-family: Arial, sans-serif;
+    background-color: #0c0c0c;
+    color: white;
+}
+
 button {
-    background: #0c0c0c;
+    /* General styling for buttons */
+    background-color: #960000;
+    color: aliceblue;
     border: none;
-    outline: none;
-    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px 40px;
+    margin: 15px;
     font-size: 1.5rem;
-    color: #ffffff;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    margin: 1rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
-    transition: all 0.5s ease;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    /* Hover effect for buttons */
+    background-color: #bb3333;
+}
+
+#rickRollButton {
+    /* Specific styling for 'Rick Roll' button */
+    font-size: 3rem; /* Much larger font size */
+    padding: 50px 200px; /* Significantly increased padding */
+    transform: rotate(20deg); /* Keeping the 45-degree rotation */
+}
+
+#backButton {
+    /* Positioning 'Back' button at the bottom left
+
+
+#backButton {
+    /* Positioning 'Back' button at the bottom left corner */
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
